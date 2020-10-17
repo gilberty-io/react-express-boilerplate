@@ -89,7 +89,8 @@ module.exports = {
   entry: ["babel-polyfill", "./src/client/index.js"],
   output: {
     path: path.join(__dirname, outputDirectory),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -137,9 +138,10 @@ module.exports = {
 1.  **entry:** entry: ./client/index.js is where the application starts executing and webpack starts bundling.
     Note: babel-polyfill is added to support async/await. Read more [here](https://babeljs.io/docs/en/babel-polyfill#usage-in-node-browserify-webpack).
 2.  **output path and filename:** the target directory and the filename for the bundled output
-3.  **module loaders:** Module loaders are transformations that are applied on the source code of a module. We pass all the js file through [babel-loader](https://github.com/babel/babel-loader) to transform JSX to Javascript. SCSS/SASS files are passed through [sass-loader](https://github.com/webpack-contrib/sass-loader), [css-loaders](https://github.com/webpack-contrib/css-loader) and [style-loaders](https://github.com/webpack-contrib/style-loader) to load and bundle CSS files. Fonts and images are loaded through url-loader.
-4.  **Dev Server:** Configurations for the webpack-dev-server which will be described in coming section.
-5.  **plugins:** [clean-webpack-plugin](https://github.com/johnagan/clean-webpack-plugin) is a webpack plugin to remove the build folder(s) before building. [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) simplifies creation of HTML files to serve your webpack bundles. It loads the template (public/index.html) and injects the output bundle.
+3.  **output public path:** the public path for the public or dist folder
+4.  **module loaders:** Module loaders are transformations that are applied on the source code of a module. We pass all the js file through [babel-loader](https://github.com/babel/babel-loader) to transform JSX to Javascript. SCSS/SASS files are passed through [sass-loader](https://github.com/webpack-contrib/sass-loader), [css-loaders](https://github.com/webpack-contrib/css-loader) and [style-loaders](https://github.com/webpack-contrib/style-loader) to load and bundle CSS files. Fonts and images are loaded through url-loader.
+5.  **Dev Server:** Configurations for the webpack-dev-server which will be described in coming section.
+6.  **plugins:** [clean-webpack-plugin](https://github.com/johnagan/clean-webpack-plugin) is a webpack plugin to remove the build folder(s) before building. [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) simplifies creation of HTML files to serve your webpack bundles. It loads the template (public/index.html) and injects the output bundle.
 
 ### Webpack dev server
 
