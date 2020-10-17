@@ -11,7 +11,7 @@ app.get('/api/getUsername', (req, res) => {
   res.send({ username: os.userInfo().username })
 });
 
-// Always send index.html for others requests
+// Always send index.html for the requests not starting by '/api' 
 app.use((req, res) => { 
   res.sendFile(path.resolve('dist/index.html'));
 });
