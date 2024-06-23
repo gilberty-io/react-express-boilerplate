@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import './app.scss';
 
 function App() {
-  const [username, setUsername] = useState("user")
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
-    fetch('/api/getUsername')
+    fetch('/api/products')
       .then(res => res.json())
-      .then(user => setUsername(user.username));
+      .then(products => setProducts(products));
   }, [])
 
   return (
       <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
+        {JSON.stringify(products)}
       </div>
   );
 }
